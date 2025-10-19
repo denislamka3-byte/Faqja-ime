@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="sq">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Faqja Ime</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, Arial, sans-serif; line-height: 1.5; padding: 1rem; background: #fafafa; color: #222; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 2px solid #ddd; }
+    nav a { margin-left: 1rem; text-decoration: none; color: #0074d9; font-weight: 500; }
+    nav a:hover { text-decoration: underline; }
+    main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    section { margin-bottom: 2rem; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.4rem; margin-bottom: 0.5rem; color: #111; }
+    p { margin-bottom: 1rem; }
+    form { display: flex; flex-direction: column; gap: 0.75rem; max-width: 400px; }
+    input, textarea { width: 100%; padding: 0.6rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; }
+    button { background: #0074d9; color: #fff; border: none; padding: 0.75rem; border-radius: 6px; font-size: 1rem; cursor: pointer; }
+    button:hover { background: #005fa3; }
+    footer { text-align: center; padding: 1rem 0; border-top: 2px solid #ddd; margin-top: 2rem; font-size: 0.9rem; color: #555; }
+    @media (max-width: 600px) {
+      body { padding: 0.5rem; }
+      header { flex-direction: column; gap: 0.5rem; }
+      nav a { margin: 0 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Emri i Faqes</h1>
+    <nav>
+      <a href="#about">Rreth</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>Rreth</h2>
+      <p>Kjo është një faqe shembull, e ndërtuar me HTML, CSS dhe JavaScript në një dokument të vetëm. Mund ta përdorësh si bazë për çdo projekt tëndin personal ose profesional.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Kontakt</h2>
+      <form id="contactForm">
+        <input name="email" type="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Mesazhi yt..." rows="4" required></textarea>
+        <button type="submit">Dërgo</button>
+      </form>
+      <p id="msg" style="margin-top:1rem;color:green;display:none;">Faleminderit! Mesazhi u dërgua.</p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Emri Yt — Të gjitha të drejtat e rezervuara.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById('contactForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const form = e.target;
+      const msg = document.getElementById('msg');
+      form.reset();
+      msg.style.display = 'block';
+      setTimeout(() => msg.style.display = 'none', 4000);
+    });
+  </script>
+</body>
+</html>
